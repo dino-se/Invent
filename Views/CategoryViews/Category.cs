@@ -13,8 +13,8 @@ namespace InventoryApp.InventoryApp.Views
             dataGridView1.DataSource = categoryManager.GetCategories();
         }
 
-        //ADD BUTTON - Category
-        private void button1_Click(object sender, System.EventArgs e)
+        // ADD
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             CatDialog dlg = new CatDialog(categoryManager);
             if (dlg.ShowDialog() == DialogResult.OK)
@@ -23,8 +23,8 @@ namespace InventoryApp.InventoryApp.Views
             }
         }
 
-        //UPDATE BUTTON - Category
-        private void button2_Click(object sender, System.EventArgs e)
+        // EDIT
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
@@ -47,8 +47,8 @@ namespace InventoryApp.InventoryApp.Views
             }
         }
 
-        //DELETE BUTTON - Category
-        private void button3_Click(object sender, System.EventArgs e)
+        // REMOVE
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {

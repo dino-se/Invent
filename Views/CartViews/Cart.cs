@@ -40,15 +40,17 @@ namespace InventoryApp.InventoryApp.Views
             }
         }
 
-        //ADD QUANTITY BYTTON - Cart
-        private void button4_Click(object sender, EventArgs e)
+        // QUANTITY
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (dataGridView1.Rows.Count > 0 && dataGridView1.SelectedRows.Count > 0)
             {
+                string name = (string)dataGridView1.SelectedRows[0].Cells["Name"].Value;
+                int price = (int)dataGridView1.SelectedRows[0].Cells["Price"].Value;
                 int quantity = (int)dataGridView1.SelectedRows[0].Cells["Quantity"].Value;
                 int productId = (int)dataGridView1.SelectedRows[0].Cells["ProductId"].Value;
 
-                Quantity dlg = new Quantity(quantity, productId);
+                Quantity dlg = new Quantity(name, price, quantity, productId);
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
                     DisplayCartItem();
@@ -60,8 +62,8 @@ namespace InventoryApp.InventoryApp.Views
             }
         }
 
-        //REMOVE BUTTON - Cart
-        private void button2_Click(object sender, EventArgs e)
+        // REMOVE
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {

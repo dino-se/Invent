@@ -12,7 +12,7 @@ namespace InventoryApp.Managers
         public void InsertTransactionItems(ListBox listBox, string transactionId)
         {
             con.Open();
-            string insertQuery = "INSERT INTO Orders (TransactionId, Name, Price, Quantity) VALUES (@TransactionId, @Name, @Price, @Quantity)";
+            string insertQuery = "INSERT INTO Orders (Uid, Name, Price, Quantity) VALUES (@Uid, @Name, @Price, @Quantity)";
 
             using (SqlCommand insertCommand = new SqlCommand(insertQuery, con))
             {
@@ -24,7 +24,7 @@ namespace InventoryApp.Managers
                     int quantity = int.Parse(parts[0]);
 
                     insertCommand.Parameters.Clear();
-                    insertCommand.Parameters.AddWithValue("@TransactionId", transactionId);
+                    insertCommand.Parameters.AddWithValue("@Uid", transactionId);
                     insertCommand.Parameters.AddWithValue("@Name", name);
                     insertCommand.Parameters.AddWithValue("@Price", price);
                     insertCommand.Parameters.AddWithValue("@Quantity", quantity);
@@ -47,15 +47,15 @@ namespace InventoryApp.Managers
                 updateStockCommand.ExecuteNonQuery();
             }
 
-            string insertQuery = "INSERT INTO [Transaction] (TransactionId, Subtotal, Cash, DiscountPercent, DiscountAmount, [Change], Total, Date) VALUES (@TransactionId, @Subtotal, @Cash, @DiscountPercent, @DiscountAmount, @Change, @Total, @Date)";
+            string insertQuery = "INSERT INTO [Transaction] (Uid, Subtotal, Cash, Percent, Amount, [Change], Total, Date) VALUES (@Uid, @Subtotal, @Cash, @Percent, @Amount, @Change, @Total, @Date)";
 
             using (SqlCommand command = new SqlCommand(insertQuery, con))
             {
-                command.Parameters.AddWithValue("@TransactionId", transactionId);
+                command.Parameters.AddWithValue("@Uid", transactionId);
                 command.Parameters.AddWithValue("@Subtotal", subtotal);
                 command.Parameters.AddWithValue("@Cash", cash);
-                command.Parameters.AddWithValue("@DiscountPercent", Math.Round(discountPercent, 0) + "%");
-                command.Parameters.AddWithValue("@DiscountAmount", discountAmount);
+                command.Parameters.AddWithValue("@Percent", Math.Round(discountPercent, 0) + "%");
+                command.Parameters.AddWithValue("@Amount", discountAmount);
                 command.Parameters.AddWithValue("@Change", change);
                 command.Parameters.AddWithValue("@Total", total);
                 command.Parameters.AddWithValue("@Date", currentDate);

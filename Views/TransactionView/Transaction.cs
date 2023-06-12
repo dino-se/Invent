@@ -18,7 +18,7 @@ namespace InventoryApp.InventoryApp.dlg
             using (SqlConnection con = ConnectionManager.GetConnection())
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT Date, Total, DiscountPercent, DiscountAmount, Total, Change, TransactionId FROM [Transaction] ", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT Date, Total, Percent, Amount, Total, Change, Uid FROM [Transaction] ", con))
                 {
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
@@ -29,8 +29,8 @@ namespace InventoryApp.InventoryApp.dlg
             }
         }
 
-        //CELL DOUBLE CLICK EVENT FOR OPENING DETAILS
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        //CELL CLICK EVENT FOR OPENING DETAILS
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {

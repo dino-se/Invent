@@ -52,6 +52,15 @@ namespace InventoryApp.InventoryApp
             }
         }
 
+        // INVENTORY TAB
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton5.Checked)
+            {
+                SwitchForm(new Inventory());
+            }
+        }
+
         //CATEGORY TAB
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
@@ -84,7 +93,7 @@ namespace InventoryApp.InventoryApp
         {
             CartManager cartManager = new CartManager();
             int cartItemCount = cartManager.GetCartItemCount();
-            radioButton3.Text = "Cart (" + cartItemCount.ToString() + ")";
+            label1.Text = cartItemCount.ToString();
         }
     }
 }

@@ -41,18 +41,18 @@ CREATE TABLE [dbo].[Transaction]
     [Date] DATETIME NULL, 
     [Subtotal] INT NULL, 
     [Cash] INT NULL, 
-    [DiscountPercent] VARCHAR(50) NULL, 
-    [DiscountAmount] DECIMAL(18, 2) NULL, 
+    [Percent] VARCHAR(50) NULL, 
+    [Amount] DECIMAL(18, 2) NULL, 
     [Total] INT NULL, 
     [Change] DECIMAL(18, 2) NULL, 
-    [TransactionId] VARCHAR(MAX) NULL,
+    [Uid] VARCHAR(MAX) NULL,
 );
 
 -- Table to store ordered items in a transaction
 CREATE TABLE [dbo].[Orders]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
-    [TransactionId] VARCHAR(MAX) NULL, 
+    [Uid] VARCHAR(MAX) NULL, 
     [Name] VARCHAR(50) NULL, 
     [Price] INT NULL, 
     [Quantity] INT NULL

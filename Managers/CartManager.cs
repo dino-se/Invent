@@ -16,7 +16,7 @@ namespace InventoryApp.Entity
             {
                 con.Open();
 
-                using (SqlCommand cmd = new SqlCommand("SELECT Name, Price, Quantity, ProductId FROM [Cart]", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT Name, Price, Quantity, Uid FROM [Cart]", con))
                 {
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
@@ -119,7 +119,7 @@ namespace InventoryApp.Entity
                             int price = Convert.ToInt32(reader["Price"]);
                             int quantity = Convert.ToInt32(reader["Quantity"]);
 
-                            string item = $"{quantity} x {name} - ${price}";
+                            string item = $"{quantity} x {name} - {price}";
                             listBox.Items.Add(item);
                         }
                     }

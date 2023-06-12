@@ -72,10 +72,28 @@ namespace InventoryApp
             }
         }
 
-        // CANCEL BUTTON
-        private void button2_Click(object sender, EventArgs e)
+        // 5
+        private void button6_Click(object sender, EventArgs e)
         {
-            Close();
+            comboBox1.SelectedIndex = 0;
+        }
+
+        // 10
+        private void button3_Click(object sender, EventArgs e)
+        {
+            comboBox1.SelectedIndex = 1;
+        }
+
+        // 15
+        private void button4_Click(object sender, EventArgs e)
+        {
+            comboBox1.SelectedIndex = 2;
+        }
+
+        // 30
+        private void button5_Click(object sender, EventArgs e)
+        {
+            comboBox1.SelectedIndex = 3;
         }
     }
 }

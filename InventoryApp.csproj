@@ -86,6 +86,12 @@
     <Compile Include="Views\CartViews\Quantity.Designer.cs">
       <DependentUpon>Quantity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ProductViews\Inventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProductViews\Inventory.Designer.cs">
+      <DependentUpon>Inventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\TransactionView\Details.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CartViews\Quantity.resx">
       <DependentUpon>Quantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProductViews\Inventory.resx">
+      <DependentUpon>Inventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TransactionView\Details.resx">
       <DependentUpon>Details.cs</DependentUpon>
