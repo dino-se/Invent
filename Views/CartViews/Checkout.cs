@@ -65,9 +65,10 @@ namespace InventoryApp
 
             string uid = transactionIdGenerator.GenerateTransactionId();
 
+            transactionManager.InsertTransactionItems(uid);
+
             if (pointOfSale.ProcessTransaction(label3.Text, textBox2.Text, comboBox1.SelectedItem, uid))
             {
-                transactionManager.InsertTransactionItems(listBox1, uid);
                 DialogResult = DialogResult.OK;
             }
         }

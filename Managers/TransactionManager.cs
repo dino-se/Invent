@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using InventoryApp.InventoryApp.dlg;
 
 namespace InventoryApp.Managers
 {
@@ -9,36 +10,15 @@ namespace InventoryApp.Managers
         readonly SqlConnection con = ConnectionManager.GetConnection();
 
         // Insert Transaction Items
-        public void InsertTransactionItems(ListBox listBox, string transactionId)
+        public void InsertTransactionItems(string uid)
         {
             con.Open();
-            string insertQuery = "INSERT INTO Orders (Uid, Name, Price, Quantity) VALUES (@Uid, @Name, @Price, @Quantity)";
+            string insertQuery = "INSERT INTO Orders (Uid, Name, Price, Quantity) SELECT @Uid, [Name], [Price], [Quantity] FROM Cart";
 
             using (SqlCommand insertCommand = new SqlCommand(insertQuery, con))
             {
-                foreach (var item in listBox.Items)
-                {
-                    string[] parts = item.ToString().Split(new string[] { " x ", " - $" }, StringSplitOptions.None);
-
-                    if (parts.Length >= 3)
-                    {
-                        string name = parts[1];
-                        decimal price = decimal.Parse(parts[2]);
-                        int quantity = int.Parse(parts[0]);
-
-                        insertCommand.Parameters.Clear();
-                        insertCommand.Parameters.AddWithValue("@Uid", transactionId);
-                        insertCommand.Parameters.AddWithValue("@Name", name);
-                        insertCommand.Parameters.AddWithValue("@Price", price);
-                        insertCommand.Parameters.AddWithValue("@Quantity", quantity);
-                        insertCommand.ExecuteNonQuery();
-                    }
-                    else
-                    {
-                        // Handle the case when the item string does not have enough parts
-                        // You can log an error, skip the current item, or handle it as needed
-                    }
-                }
+                insertCommand.Parameters.AddWithValue("@Uid", uid);
+                insertCommand.ExecuteNonQuery();
             }
 
             con.Close();

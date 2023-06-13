@@ -14,15 +14,15 @@ namespace InventoryApp.InventoryApp.dlg
         }
 
         //FETCH DATA FROM ORDERS TABLE
-        private void DisplayTransactionItems(string transactionId)
+        private void DisplayTransactionItems(string uid)
         {
             using (SqlConnection con = ConnectionManager.GetConnection())
             {
                 con.Open();
 
-                using (SqlCommand cmd = new SqlCommand("SELECT Name, Price, Quantity FROM Orders WHERE Uid = @transactionId", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT Name, Price, Quantity FROM Orders WHERE Uid = @uid", con))
                 {
-                    cmd.Parameters.AddWithValue("@transactionId", transactionId);
+                    cmd.Parameters.AddWithValue("@uid", uid);
 
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
