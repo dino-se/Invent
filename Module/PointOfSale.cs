@@ -8,10 +8,10 @@ namespace InventoryApp.Services
     {
         public void InitializeComboBox(ComboBox comboBox)
         {
-            comboBox.Items.Add(new ComboBoxItem { Value = 10, Description = "10% off" });
-            comboBox.Items.Add(new ComboBoxItem { Value = 15, Description = "15% off" });
-            comboBox.Items.Add(new ComboBoxItem { Value = 30, Description = "30% off" });
-            comboBox.Items.Add(new ComboBoxItem { Value = 50, Description = "50% off" });
+            comboBox.Items.Add(new ComboBoxItem { Value = 10, Description = "5% off" });
+            comboBox.Items.Add(new ComboBoxItem { Value = 15, Description = "10% off" });
+            comboBox.Items.Add(new ComboBoxItem { Value = 30, Description = "15% off" });
+            comboBox.Items.Add(new ComboBoxItem { Value = 50, Description = "30% off" });
             //comboBox.Items.Add("Custom");
         }
 
