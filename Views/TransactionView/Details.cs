@@ -20,7 +20,7 @@ namespace InventoryApp.InventoryApp.dlg
             {
                 con.Open();
 
-                using (SqlCommand cmd = new SqlCommand("SELECT Name, Price, Quantity FROM Orders WHERE TransactionId = @transactionId", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT Name, Price, Quantity FROM Orders WHERE Uid = @transactionId", con))
                 {
                     cmd.Parameters.AddWithValue("@transactionId", transactionId);
 

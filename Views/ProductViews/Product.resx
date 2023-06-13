@@ -121,17 +121,20 @@
   <data name="button6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAAPtJREFUSEvt0j9KA0EYhvEFib29XdLaWeYI/jlDrpAgqQQhTTxIBBXTpfEUFmIR
+        DQAACw0B7QfALAAAAPtJREFUSEvt0j9KA0EYhvEFib29XdLaWeYI/jlDrpAgqQQhTTxIBBXTpfEUFmIR
         NRZ2FuIJNM8LWRiG1y8TErHJAz8IM/vt7oSttpX2ih984kwLm66DISbQgw7xJ+3hG3rIuh5ge4MbWNUM
         tjHcwKruYDuHG6hd4SBbc3Qf2zHcQO0Cyu2ljmDbhxu4xg7SopPoPr/2gXzgHTp2G6qPEfLrRPNh93CD
         MoBO4vZqmg+7hBsUneQ2W8tpPuwUbrDUCcJ28QQ3vMwjGliavoIbfMHdKKfr9KWFX8+/1MLLgn6nRXvF
         9VD/DV0tJEV7xenNnjFFUwtJ0d62kqpqDu84zvwmbe9lAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA+4AAAKsCAYAAAByA+dtAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAA/7JJREFUeF7s/YuzrVl21QfeP6TdbtPGYDBYGCje5mXZiLfBAmNMt0GiZRubVzdG
+        wgAADsIBFShKgAAA/7JJREFUeF7s/YuzrVl21QfeP6TdbtPGYDBYGCje5mXZiLfBAmNMt0GiZRubVzdG
         aj0RCKRCyEiFssCAhFoqyVhKIckNdshhqbstRzfQbRx02CII3CEUkkAIUKnez7w9xjjrN3Outb99bmZV
         ZVXmzTkjRsy51t5nn3P2/r6b55djrrWefOSf/189/chP/meWei39C//M049aP8X6X6tech39sy1LP7Xr
         f/Ogf1H6af/cQ/7pS/9Slx77mdZPesj/8tLP0vjTnKWf/ZOevoR+zv/26UtvkX7uytbP/+efvvTznJd+

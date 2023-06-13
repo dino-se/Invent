@@ -18,7 +18,7 @@ namespace InventoryApp.InventoryApp.dlg
             using (SqlConnection con = ConnectionManager.GetConnection())
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT Date, Total, Percent, Amount, Total, Change, Uid FROM [Transaction] ", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT Date, Subtotal, [Percent], Amount, Total, Change, Uid FROM [Transaction] ", con))
                 {
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
@@ -34,7 +34,7 @@ namespace InventoryApp.InventoryApp.dlg
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                string id = (string)dataGridView1.SelectedRows[0].Cells["TransactionId"].Value;
+                string id = (string)dataGridView1.SelectedRows[0].Cells["Uid"].Value;
                 Details dlg = new Details(id);
                 dlg.ShowDialog();
             }

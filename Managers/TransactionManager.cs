@@ -19,16 +19,25 @@ namespace InventoryApp.Managers
                 foreach (var item in listBox.Items)
                 {
                     string[] parts = item.ToString().Split(new string[] { " x ", " - $" }, StringSplitOptions.None);
-                    string name = parts[1];
-                    decimal price = decimal.Parse(parts[2]);
-                    int quantity = int.Parse(parts[0]);
 
-                    insertCommand.Parameters.Clear();
-                    insertCommand.Parameters.AddWithValue("@Uid", transactionId);
-                    insertCommand.Parameters.AddWithValue("@Name", name);
-                    insertCommand.Parameters.AddWithValue("@Price", price);
-                    insertCommand.Parameters.AddWithValue("@Quantity", quantity);
-                    insertCommand.ExecuteNonQuery();
+                    if (parts.Length >= 3)
+                    {
+                        string name = parts[1];
+                        decimal price = decimal.Parse(parts[2]);
+                        int quantity = int.Parse(parts[0]);
+
+                        insertCommand.Parameters.Clear();
+                        insertCommand.Parameters.AddWithValue("@Uid", transactionId);
+                        insertCommand.Parameters.AddWithValue("@Name", name);
+                        insertCommand.Parameters.AddWithValue("@Price", price);
+                        insertCommand.Parameters.AddWithValue("@Quantity", quantity);
+                        insertCommand.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        // Handle the case when the item string does not have enough parts
+                        // You can log an error, skip the current item, or handle it as needed
+                    }
                 }
             }
 
@@ -47,7 +56,7 @@ namespace InventoryApp.Managers
                 updateStockCommand.ExecuteNonQuery();
             }
 
-            string insertQuery = "INSERT INTO [Transaction] (Uid, Subtotal, Cash, Percent, Amount, [Change], Total, Date) VALUES (@Uid, @Subtotal, @Cash, @Percent, @Amount, @Change, @Total, @Date)";
+            string insertQuery = "INSERT INTO [Transaction] (Uid, Subtotal, Cash, [Percent], Amount, [Change], Total, Date) VALUES (@Uid, @Subtotal, @Cash, @Percent, @Amount, @Change, @Total, @Date)";
 
             using (SqlCommand command = new SqlCommand(insertQuery, con))
             {

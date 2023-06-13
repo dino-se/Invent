@@ -63,11 +63,11 @@ namespace InventoryApp
             TransactionManager transactionManager = new TransactionManager();
             TransactionIdGenerator transactionIdGenerator = new TransactionIdGenerator();
 
-            string transactionId = transactionIdGenerator.GenerateTransactionId();
+            string uid = transactionIdGenerator.GenerateTransactionId();
 
-            if (pointOfSale.ProcessTransaction(label3.Text, textBox2.Text, comboBox1.SelectedItem, transactionId))
+            if (pointOfSale.ProcessTransaction(label3.Text, textBox2.Text, comboBox1.SelectedItem, uid))
             {
-                transactionManager.InsertTransactionItems(listBox1, transactionId);
+                transactionManager.InsertTransactionItems(listBox1, uid);
                 DialogResult = DialogResult.OK;
             }
         }

@@ -13,6 +13,10 @@ namespace InventoryApp
             InitializeComponent();
             productManager = new ProductManager();
             dataGridView1.DataSource = productManager.GetProducts();
+
+            timer1.Interval = 2000;
+            timer1.Tick += timer1_Tick;
+            timer1.Start();
         }
 
         //SEARCH AND DISPLAY RESULTS
@@ -58,14 +62,26 @@ namespace InventoryApp
                     bool itemAdded = ProductManager.AddItemToCart(name, price);
                     if (itemAdded)
                     {
-                        MessageBox.Show("Product added to cart.");
+                        //MessageBox.Show("Product added to cart.");
+                        label1.Visible = true;
+                        label1.ForeColor = System.Drawing.Color.Green;
+                        label1.Text = ("Product added to cart.");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Product out of stock.");
+                    //MessageBox.Show("Product out of stock.");
+                    label1.Visible = true;
+                    label1.Text = ("Product out of stock.");
+                    label1.ForeColor = System.Drawing.Color.Red;
                 }
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label1.Visible = false;
+            label1.ResetForeColor();
         }
     }
 }
